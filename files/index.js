@@ -6,7 +6,7 @@ document.querySelector("button[type='submit']").addEventListener('click',(e)=>{
     e.stopPropagation()
     getPublicKeyAsync(private_key).then(
         (public_key)=>{
-            signAsync(Uint8Array.from("testing"),private_key)
+            signAsync(Uint8Array.from(new TextEncoder("testing")),private_key)
                 .then((signature)=>{
                     fetch("/",{
                         method: "POST", 
